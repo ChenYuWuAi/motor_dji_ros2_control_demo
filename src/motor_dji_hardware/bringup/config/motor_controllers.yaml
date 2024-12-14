@@ -1,0 +1,14 @@
+# 硬件控制器绑定配置
+controller_manager:
+  ros__parameters:
+   update_rate: 1000  # Hz
+
+   joint_state_broadcaster:
+     type: joint_state_broadcaster/JointStateBroadcaster
+
+forward_position_controller:
+  ros__parameters:
+    type: forward_command_controller/ForwardCommandController
+    joints:
+      - motor_dji_hardware_test_base_link_to_actuator_joint
+    interface_name: voltage

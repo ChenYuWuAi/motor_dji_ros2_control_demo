@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <xacro:macro name="motor_dji_ros2_control" params="name prefix">
+        <xacro:property name="PI" value="3.1415926535897931" />
+        <ros2_control name="${name}" type="system">
+            <hardware>
+                <plugin>motor_dji_hardware/MotorDjiHWInterface</plugin>
+            </hardware>
+
+            <joint name="${prefix}base_link_to_actuator_joint">
+                <command_interface name="voltage" />
+                <state_interface name="position" />
+                <state_interface name="velocity" />
+                <state_interface name="torque" />
+            </joint>
+        </ros2_control>
+    </xacro:macro>
+
+    <xacro:macro name="motor_dji_hardware_test_bot" params="name prefix">
+        <xacro:property name="PI" value="3.1415926535897931" />
+        <!-- Base Link -->
+        <link name="base_link">
+        </link>
+
+        <link name="actuator_link">
+
+        </link>
+
+        <!-- Joint -->
+        <joint name="${prefix}base_link_to_actuator_joint" type="continuous">
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <parent link="base_link" />
+            <child link="actuator_link" />
+        </joint>
+    </xacro:macro>
+</robot>

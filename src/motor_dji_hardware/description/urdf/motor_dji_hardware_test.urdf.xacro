@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="robot_name">
+<xacro:include filename="$(find motor_dji_hardware)/urdf/motor_dji_hardware.urdf.xacro" />
+    <xacro:motor_dji_ros2_control name="motor_dji_hardware_test" prefix="motor_dji_hardware_test_" />
+    <xacro:motor_dji_hardware_test_bot name="motor_dji_hardware_test"
+        prefix="motor_dji_hardware_test_" />
+</robot>
